@@ -1,0 +1,120 @@
+body {
+  height: 100vh;
+  width: 100vw;
+  background: linear-gradient(-45deg, #0f0c29, #710646, #24243e);
+  background-size: 400% 400%;
+  animation: gradientShift 3s ease infinite;
+  margin: 0;
+  overflow: hidden;
+}
+
+.particle {
+  position: absolute;
+  background-color: white;
+  border-radius: 50%;
+  opacity: 0.6;
+  filter: blur(3px);
+  animation: floatUp linear infinite;
+}
+
+#image-track > .image {
+  box-shadow: 0px 0px 50px rgba(255, 255, 255, 0.3);
+  transition: box-shadow 0.5s ease-in-out;
+}
+
+#image-track > .image:hover {
+  box-shadow: 0px 0px 200px rgba(255, 255, 255, 0.6);
+}
+
+
+@keyframes floatUp {
+  0% {
+      transform: translateY(0);
+      opacity: 0.6;
+  }
+  100% {
+      transform: translateY(-200px);
+      opacity: 0;
+  }
+}
+
+
+@keyframes gradientShift {
+  0% { background-position: 0% 15%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+  
+  #image-track {
+    display: flex;
+    gap: 4vmin;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(0%, -50%); 
+    user-select: none; /* -- Prevent image highlighting -- */
+  }
+  
+  #image-track > .image {
+    max-width: 40vmin;
+    max-height: 56vmin;
+    width: auto;
+    height: auto;
+    object-fit: cover;
+    object-position: center;
+}
+
+  
+  /* -- YouTube Link Styles -- */
+  
+  body.menu-toggled > .meta-link > span {
+    color: rgb(30, 30, 30);
+  }
+  
+  #source-link {
+    bottom: 60px;
+  }
+  
+  #source-link > i {
+    color: rgb(94, 106, 210);
+  }
+  
+  #yt-link > i {
+    color: rgb(239, 83, 80);
+  }
+  
+  .meta-link {
+    align-items: center;
+    backdrop-filter: blur(3px);
+    background-color: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 6px;
+    bottom: 10px;
+    box-shadow: 2px 2px 2px rgba(0, 0, 0, 0.1);
+    cursor: pointer;  
+    display: inline-flex;
+    gap: 5px;
+    left: 10px;
+    padding: 10px 20px;
+    position: fixed;
+    text-decoration: none;
+    transition: background-color 400ms, border-color 400ms;
+    z-index: 10000;
+  }
+  
+  .meta-link:hover {
+    background-color: rgba(255, 255, 255, 0.1);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+  }
+  
+  .meta-link > i, .meta-link > span {
+    height: 20px;
+    line-height: 20px;
+  }
+  
+  .meta-link > span {
+    color: white;
+    font-family: "Rubik", sans-serif;
+    font-weight: 500;
+  }
